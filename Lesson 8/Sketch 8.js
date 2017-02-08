@@ -19,7 +19,7 @@ i = insensitive (case);
 var txt;
 function preload(){
     
-    txt = loadStrings("Sample7.txt");
+    txt = loadStrings("Sample8.txt");
     
 }
 function setup(){
