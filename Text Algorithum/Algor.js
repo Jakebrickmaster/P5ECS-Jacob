@@ -2,7 +2,7 @@ var txt;
 
 function preload(){
     
-    txt = loadStrings(Algor.txt);
+    txt = loadStrings('Algor.txt');
 }
 
 
@@ -17,36 +17,52 @@ function setup(){
 }
 
 function replacing () {
-    var s = seed.value();
-    var r = /\b\w+\b/g;
+     var s ;
+    
+    for(var i = 0; i < txt.length; i++){
+        s += txt[i];
+    }
+   
+
+    var r = /Super Saiyan Blue/g;
     
     var newstring = s.replace(r, Blue);
     console.log(newstring);
     createP(newstring);
-}
-
-function randostring(match, group1) {
     
-    if (match.length == 4){
-        return match.toUpperCase();
-        
-    }
-    else{
-        return match;
-    }
+    console.log(txt);
     
 }
 
 
-function Blue(match){
+
+function Blue(){
     
     
-    //console.log(txt);
+    //var randquote = txt;
+    //console.log((Super Saiyan God Super Saiyan));
     
-    var randquote = random(txt);
-    console.log(randquote);
+    var replacedname =  "Super Saiyan God Super Saiyan" 
     
-    var replacedname = "Donald " + randquote + " Trump";
     
     return replacedname;
+    var span1 = createSpan(i);
+        span1.parent(output);
+     var word = replacedname.split(/Super Saiyan God Super Saiyan/);
+    
+    if(/Super Saiyan God Super Saiyan/.test(word[i])){
+        
+        span1.mouseOver(highlight);
+        }
+    
+}
+
+function highlight(){
+    //span1.style('background-color', '#c91077');
+    //console.log("this works!");
+    console.log(this.html());
+    var c = color('background-color', '#0000ff');
+    this.style('background-color', c);
+    
+    
 }
