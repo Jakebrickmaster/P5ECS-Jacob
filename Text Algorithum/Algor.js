@@ -12,12 +12,13 @@ function setup(){
  seed = select('#seed');
     
     button = select('#submit');
+    output = select('#output');
     button.mousePressed(replacing);
     
 }
-
+var s ;
 function replacing () {
-     var s ;
+     
     
     for(var i = 0; i < txt.length; i++){
         s += txt[i];
@@ -38,22 +39,25 @@ function replacing () {
 
 function Blue(){
     
-    
+   var r = /Super Saiyan Blue/g;
     //var randquote = txt;
     //console.log((Super Saiyan God Super Saiyan));
     
-    var replacedname =  "Super Saiyan God Super Saiyan" 
+    var replacedname =  "Super Saiyan Blue(Super Saiyan God Super Saiyan)"; 
     
+     //if(s.match(/Super Saiyan Blue(Super Saiyan God Super Saiyan)/))
+        
+        console.log(s);
+     var saiyan = s.match(r);
+    
+    for (var i =0; i < saiyan.length; i++){
+        var c = color('#0000ff');
+        s.style('background-color', c);
+        
+    }
     
     return replacedname;
-    var span1 = createSpan(i);
-        span1.parent(output);
-     var word = replacedname.split(/Super Saiyan God Super Saiyan/);
-    
-    if(/Super Saiyan God Super Saiyan/.test(word[i])){
-        
-        span1.mouseOver(highlight);
-        }
+  
     
 }
 
@@ -61,8 +65,10 @@ function highlight(){
     //span1.style('background-color', '#c91077');
     //console.log("this works!");
     console.log(this.html());
-    var c = color('background-color', '#0000ff');
+    this.html("Super Saiyan God Super Saiyan");
+    var c = color('#0000ff');
     this.style('background-color', c);
     
     
 }
+
