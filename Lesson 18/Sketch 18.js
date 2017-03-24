@@ -1,14 +1,31 @@
-var url1 = 'http://api.wordnik.com:80/v4/word.json/';
+var apikey =  "?api-key=3a4cb87a9dbd4c4c800759527691892c";
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+var search;
+var query = "&q=";
 
-var word = 'Nick';
-
-var url2 = '/relatedWords?useCanonical=true&limitPerRelationshipType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5';
+//https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=3a4cb87a9dbd4c4c800759527691892c&q=instagram
 
 function setup(){
     noCanvas();
-    loadJSON(url1+word+url2, gotData);
+
+    //link = createA('#', "Click me for Instagram Articles!");
+    //link.mousePressed(findArticles);
+    var button = select('#submit');
+    button.mousePressed(findArticles);
+    input = select('#search');
 }
 
-function gotData(Raemon){
-    console.log(Raemon);
+
+function findArticles(){
+    search = input.value();
+    loadJSON(url+apikey+query+search, gotData);
+}
+
+function gotData(data){
+    console.log(data);
+    var articles = data.response.docs;
+    for(var i = 0; i < articles.length; i++){
+        createElement('h2', articles[i].headline.main);
+        createElement('h3', articles[i].snippet);
+    }
 }
