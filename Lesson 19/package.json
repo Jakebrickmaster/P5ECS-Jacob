@@ -15,6 +15,8 @@
   "author": "Jacob Reed",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0",
     "twit": "^2.2.5"
   }
 }
